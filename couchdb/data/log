@@ -1,0 +1,17 @@
+[Sat, 14 Mar 2020 20:38:53 GMT] [error] [<0.114.0>] httpd 500 error response:
+ {"error":"error","reason":"{conn_failed,{error,econnrefused}}"}
+
+[Sat, 14 Mar 2020 20:39:02 GMT] [error] [<0.114.0>] httpd 500 error response:
+ {"error":"error","reason":"{conn_failed,{error,econnrefused}}"}
+
+[Sat, 14 Mar 2020 20:42:32 GMT] [error] [<0.119.0>] httpd 500 error response:
+ {"error":"error","reason":"{conn_failed,{error,econnrefused}}"}
+
+[Sat, 14 Mar 2020 20:42:38 GMT] [error] [<0.119.0>] httpd 500 error response:
+ {"error":"error","reason":"{conn_failed,{error,econnrefused}}"}
+
+[Sun, 15 Mar 2020 09:45:52 GMT] [error] [<0.11683.0>] Could not open file /usr/local/var/lib/couchdb/databases/database.couch: no such file or directory
+[Sun, 15 Mar 2020 09:46:47 GMT] [error] [<0.11748.0>] Could not open file /usr/local/var/lib/couchdb/databases/database.couch: no such file or directory
+[Sun, 15 Mar 2020 09:47:15 GMT] [error] [<0.11782.0>] Could not open file /usr/local/var/lib/couchdb/databases/lucene.couch: no such file or directory
+[Sun, 15 Mar 2020 09:47:31 GMT] [error] [<0.11803.0>] Could not open file /usr/local/var/lib/couchdb/databases/lucene.couch: no such file or directory
+[Sun, 15 Mar 2020 09:47:38 GMT] [error] [<0.11816.0>] Could not open file /usr/local/var/lib/couchdb/databases/lucene.couch: no such file or directory

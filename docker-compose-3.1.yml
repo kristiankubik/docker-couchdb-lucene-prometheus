@@ -1,0 +1,47 @@
+version: '3.1'
+services:
+  couchdb:
+    image: couchdb:1.7.1
+    restart: always
+    environment:
+      NODENAME: test-node-1
+      COUCHDB_USER: supersecretuser
+      COUCHDB_PASSWORD: notthatsecretpassword
+    volumes:
+      - ./couchdb/local.d:/usr/local/etc/couchdb/local.d
+      - ./couchdb/data:/usr/local/var/lib/couchdb
+    ports:
+      - 5985:5984
+    networks:
+      - cdb-net
+  prometheus_exporter:
+    image: gesellix/couchdb-prometheus-exporter:0.27.4
+    command: --couchdb.uri=http://couchdb:5984 --databases=_all_dbs --couchdb.username=supersecretuser --couchdb.password=notthatsecretpassword --logtostderr
+    ports:
+      - 9984
+    networks:
+      - cdb-net
+    depends_on:
+      - couchdb
+  lucene:
+    build:
+      context: ./lucene
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    volumes:
+      - lucene-indexes:/opt/lucene/indexes
+      - ./lucene/config:/opt/lucene/conf
+    ports:
+      - 5985
+    networks:
+      - cdb-net
+    depends_on:
+      - couchdb
+
+networks:
+  cdb-net:
+    driver: bridge
+
+volumes:
+  lucene-indexes:
+    driver: local
